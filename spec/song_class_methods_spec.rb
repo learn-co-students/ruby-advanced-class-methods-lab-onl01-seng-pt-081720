@@ -57,16 +57,17 @@ describe "Song Class Methods" do
     end
     
     it 'creates a new Song object with the provided title if one doesn\'t already exist' do
-      blank_space = Song.find_by_name("Blank Space")
+      blank_space = Song.find_by_name("Blank Space!")
       expect(blank_space).to be(nil)
 
-      blank_space = Song.find_or_create_by_name("Blank Space")
-      expect(blank_space.name).to eq("Blank Space")
+      blank_space = Song.find_or_create_by_name("Blank Space!")
+      expect(blank_space.name).to eq("Blank Space!")
     end
   end
 
   describe '.alphabetical' do
     it 'returns all the song instances in alphabetical order by song name' do
+      #binding.pry
       song_1 = Song.create_by_name("Thriller")
       song_2 = Song.create_by_name("Blank Space")
       song_3 = Song.create_by_name("Call Me Maybe")
